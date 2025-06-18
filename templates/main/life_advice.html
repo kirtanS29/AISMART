@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h2>🧠 Smart Life Advisor</h2>
+    <form method="POST" class="mb-4">
+        {% csrf_token %}
+        <textarea name="message" rows="3" class="form-control mb-2" placeholder="Feeling anxious, lost or need guidance? Ask here..." required></textarea>
+        <button type="submit" class="btn btn-info">Get Advice</button>
+    </form>
+
+    {% if response %}
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Your AI Counselor says:</h5>
+                <p style="white-space: pre-line;">{{ response }}</p>
+            </div>
+        </div>
+    {% endif %}
+
+    <hr>
+    <h4>📝 Previous Interactions</h4>
+    <pre style="white-space: pre-wrap;">{{ chat_history }}</pre>
+</div>
+{% endblock %}

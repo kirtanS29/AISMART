@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+  <div class="text-center mb-4">
+    <h2 class="fw-bold text-gradient">Smart AI Chatbot 🤖</h2>
+    <p class="text-secondary">Ask your question and get AI-powered responses with sentiment analysis.</p>
+  </div>
+
+  <!-- Chat Form -->
+  <div class="row justify-content-center mb-5">
+    <div class="col-md-8">
+      <div class="card shadow-sm border-0 rounded-4 p-4 bg-white">
+        <form method="POST" class="d-flex flex-column flex-sm-row gap-3 align-items-center">
+          {% csrf_token %}
+          <input type="text" name="message" class="form-control rounded-pill px-4 py-2 shadow-sm" placeholder="Ask something..." required>
+          <button type="submit" class="btn btn-primary rounded-pill px-4 py-2">Send</button>
+        </form>
+
+        {% if response %}
+          <div class="mt-4 alert alert-info border-0 rounded-4 shadow-sm">
+            <strong>Bot Response:</strong> {{ response }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Chat History -->
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <h4 class="mb-3 text-primary">🕘 Chat History</h4>
+      {% if history %}
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+          {% for chat in history %}
+            <div class="col">
+              <div class="card h-100 shadow-sm border-0 rounded-4 p-3 bg-light">
+                <p><strong class="text-dark">You:</strong> {{ chat.user_message }}</p>
+                <p><strong class="text-dark">Bot:</strong> {{ chat.bot_response }}</p>
+                <p class="mb-0">
+                  <span class="badge bg-info text-dark">Sentiment: {{ chat.sentiment }}</span>
+                  <small class="text-muted float-end">{{ chat.timestamp }}</small>
+                </p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <div class="alert alert-warning border-0 rounded-3">
+          No chat history available.
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

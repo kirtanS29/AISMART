@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+  <div class="text-center mb-5">
+    <h2 class="display-5 fw-bold text-primary">Welcome to Smart AI Web App</h2>
+    <p class="lead text-secondary">Your intelligent assistant platform with advanced features to enhance your daily digital experience.</p>
+    {% if user.is_authenticated %}
+      <a href="{% url 'dashboard' %}" class="btn btn-primary px-4 py-2">Go to Dashboard</a>
+    {% else %}
+      <a href="{% url 'login' %}" class="btn btn-success px-4 py-2 me-2">Login</a>
+      <a href="{% url 'signup' %}" class="btn btn-secondary px-4 py-2">Sign Up</a>
+    {% endif %}
+  </div>
+
+  <!-- Features Section -->
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body">
+          <h5 class="card-title text-gradient">🤖 AI Chatbot</h5>
+          <p class="card-text">Experience natural conversations powered by cutting-edge AI. Get instant answers, productivity help, or just chat intelligently.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body">
+          <h5 class="card-title text-gradient">💬 Sentiment Analysis</h5>
+          <p class="card-text">Our platform analyzes every message to detect emotional tone — helping you understand mood and context in real-time.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body">
+          <h5 class="card-title text-gradient">🛍️ Smart Recommender System</h5>
+          <p class="card-text">Looking for the best products? Our AI recommender understands your needs through smart Q&A and suggests perfect options.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body">
+          <h5 class="card-title text-gradient">🔐 Secure User Accounts</h5>
+          <p class="card-text">Your data is safe with us. Register, log in securely, and explore features tailored to your needs.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body">
+          <h5 class="card-title text-gradient">📊 Interactive Dashboard</h5>
+          <p class="card-text">Track your activity, access chatbot history, view recommendations, and get personalized insights all in one place.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col -md-4" style="background: #fff5f5; border: 1px solid #f5c6cb;">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body">
+          <h5 class="text-danger mb-3">🧠 Smart Life Advisor</h5>
+          <p>Need guidance on real-life challenges like stress, anxiety, or low motivation? Our AI-powered Smart Life Advisor gives actionable advice based on your situation.</p>
+        </div>
+      </div>
+    
+
+  </div>
+</div>
+{% endblock %}
+<style>
+  .text-gradient {
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }

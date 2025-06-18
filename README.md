@@ -1,0 +1,2 @@
+# AISMART
+smartai

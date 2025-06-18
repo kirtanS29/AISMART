@@ -102,8 +102,8 @@ python-dateutil==2.8.2
 python-dotenv==1.0.1
 pyttsx3==2.90
 pytweening==1.2.0
-pytz==2024.1
-pywavelets-1.6.0
+pytz==2023.3.post1
+pywavelets==1.4.1
 PyYAML==6.0.1
 pyzmq==25.1.2
 quimb==1.4.0

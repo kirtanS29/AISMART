@@ -78,13 +78,12 @@ WSGI_APPLICATION = 'smartai.wsgi.application'
 
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default='postgres://...',  # optional fallback if DATABASE_URL is not set
-        conn_max_age=600,
-        ssl_require=True,
-        engine='django.db.backends.postgresql_psycopg'  # 👈 use psycopg driver here
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / "db.sqlite3",
+    }
 }
+
 
 
 # Password validation
